@@ -4,7 +4,7 @@
                     <div class="content">
                         {{ with .title }}<h1>{{.}}</h1>{{end}}
                         {{ with .subtitle }}<p class="major">{{. | safeHTML }}</p>{{end}}
-                        {{ with .Content }}
+                        {{ with .Content | markdownify }}
                         <p>{{.}}</p>
                         {{ end }}
                         {{ with .action }}<ul class="actions stacked">
