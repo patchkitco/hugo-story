@@ -1,12 +1,10 @@
                 <!-- Banner -->
-                {{ with .banner }}
+                {{ with .Params.banner }}
                 <section class="banner {{.style | default `style1`}} {{.orient | default ``}} {{.contentAlign | default ``}} {{.imagePosition | default ``}} {{if isset . `fullscreen`}}fullscreen{{end}} {{if isset . `invert`}}invert{{end}} {{.onload.image | default ``}} {{.onload.content | default ``}} {{.onscroll.image | default ``}} {{.onscroll.content | default ``}} {{.color | default ``}}">
                     <div class="content">
                         {{ with .title }}<h1>{{.}}</h1>{{end}}
                         {{ with .subtitle }}<p class="major">{{. | safeHTML }}</p>{{end}}
-                        {{ with .Content | markdownify }}
-                        <p>{{.}}</p>
-                        {{ end }}
+                        <p>{{$.Content}}</p>
                         {{ with .action }}<ul class="actions stacked">
                             <li><a href="{{ .url }}" class="button large wide smooth-scroll-middle">{{ .label }}</a></li>
                         </ul>

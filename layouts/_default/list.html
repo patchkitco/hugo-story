@@ -1,6 +1,8 @@
 {{ define "main"}}
     <!-- Main -->
-    {{ partial "banner" .Params }}
+    {{ range .Pages.ByWeight }}
+        {{ partial "banner" . }}
+    {{ end}}
     {{/* partial "spotlight-01-left" . }}
     {{ partial "spotlight-02-right" . }}
     {{ partial "spotlight-03-left" . }}
