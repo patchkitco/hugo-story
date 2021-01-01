@@ -1,0 +1,22 @@
+                <!-- Spotlight -->
+                {{ with .Params.spotlight }}
+                <section class="spotlight {{.style | default `style1`}} {{.orient | default ``}} {{.contentAlign | default ``}} {{.imagePosition | default ``}}">
+                    <div class="content">
+                        {{ with .title }}<h2>{{.}}</h2>{{end}}
+                        <p>{{$.Summary}}</p>
+                        {{ with .action }}<ul class="actions stacked">
+                            {{if isset . "self" }}
+                            <li><a href="{{ $.RelPermalink }}" class="button">{{ .label }}</a></li>
+                            {{ else }}
+                                <li><a href="{{ .url }}" class="button">{{ .label }}</a></li>
+                            {{ end }}
+                        </ul>
+                        {{ end}}
+                    </div>
+                    {{ with .logo }}
+                    <div class="image">
+                        <img src="{{.src}}" alt="{{.alt}}" />
+                    </div>
+                    {{end}}
+                </section>
+                {{ end }}

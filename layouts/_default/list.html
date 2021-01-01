@@ -1,14 +1,8 @@
 {{ define "main"}}
+    {{ $content := union .Pages .Sections }}
     <!-- Main -->
-    {{ range .Pages.ByWeight }}
+    {{ range $content.ByWeight }}
         {{ partial "banner" . }}
-    {{ end}}
-    {{/* partial "spotlight-01-left" . }}
-    {{ partial "spotlight-02-right" . }}
-    {{ partial "spotlight-03-left" . }}
-    {{ partial "gallery" . }}
-    {{ partial "items" . }}
-    {{ partial "elements" . }}
-    {{ partial "elements_reference" . }}
-    {{ partial "template/footer" . */}}
+        {{ partial "spotlight" . }}
+    {{ end }}
 {{end}}
